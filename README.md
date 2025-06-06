@@ -295,13 +295,13 @@ int main() {
 
 1. **Compile ambos os programas:**
    ```sh
-   gcc writer.c -o writer
-   gcc reader.c -o reader
+   gcc writer-mem.c -o writer-mem
+   gcc reader-mem.c -o reader-mem
    ```
 
 2. **Execute o escritor primeiro (em um terminal):**
    ```sh
-   ./writer
+   ./writer-mem
    ```
    Saída esperada:
    ```
@@ -311,7 +311,7 @@ int main() {
 
 3. **Em outro terminal, execute o leitor:**
    ```sh
-   ./reader
+   ./reader-mem
    ```
    Saída esperada:
    ```
@@ -327,13 +327,13 @@ int main() {
 ---
 
 ### **Explicação do Funcionamento**
-1. **`writer.c`**:
+1. **`writer-mem.c`**:
    - Cria um segmento de memória compartilhada (`shmget`).
    - Escreve uma mensagem (`strcpy`).
    - Fica em loop até que o leitor modifique o primeiro byte (`*shm = '*'`).
    - Libera a memória compartilhada (`shmdt`, `shmctl`).
 
-2. **`reader.c`**:
+2. **`reader-mem.c`**:
    - Acessa a mesma memória compartilhada usando a mesma chave (`key = 1234`).
    - Lê a mensagem e imprime.
    - Sinaliza que terminou alterando o primeiro byte (`*shm = '*'`).
