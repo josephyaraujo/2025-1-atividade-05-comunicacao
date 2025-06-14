@@ -68,7 +68,7 @@ Execução do file_thread.c
 Execução do mem_thread.c
 ![Alteração do código original 1](practice/imgs/img12.png)
 
-### Análise dos resultados e Conclusões:
+## Análise dos resultados e Conclusões:
 Como é possível observar, ao mensurar o tempo gasto na execução pelos programas que usam threads, em comparação com os programas que usam comunicação via kernel, estes primeiros se mostram mais rapidos, chegando a tempos 4x menores devido à ausência de chamadas ao Kernel, como no caso da execução do **reader-writer-mem-thread**, que só consumiu 1 milissegundo do tempo do sistema. 
 
 **Aprendizados:**
